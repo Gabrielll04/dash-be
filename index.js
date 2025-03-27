@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 
+import v1_interna_routes from "./routes/interna.js";
+
 /* Variáveis de Ambiente */
 dotenv.config();
 
@@ -12,6 +14,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
+
+// Rotas de /v1/interna/
+app.use("/v1/interna/", v1_interna_routes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, (error) => {
